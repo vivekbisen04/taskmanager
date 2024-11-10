@@ -17,10 +17,7 @@ const origin = process.env.CORS_ORIGIN || 'http://localhost:3000';
 
 const app = express();
 
-app.use(cors({
-    origin: origin,
-    credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
