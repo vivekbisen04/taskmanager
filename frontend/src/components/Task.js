@@ -110,7 +110,7 @@ function Task() {
   useEffect(() => {
     if (!isAddTaskModalOpen || isRenderChange) {
       axios
-        .get(`http://localhost:9000/project/${projectId}`)
+        .get(`https://taskmanager-bhx4.onrender.com/project/${projectId}`)
         .then((res) => {
           setTitle(res.data[0].title);
           setColumns({
@@ -157,7 +157,10 @@ function Task() {
 
   const updateTodo = (data) => {
     axios
-      .put(`http://localhost:9000/project/${projectId}/todo`, data)
+      .put(
+        `https://taskmanager-bhx4.onrender.com/project/${projectId}/todo`,
+        data
+      )
       .then((res) => {})
       .catch((error) => {
         toast.error("Something went wrong");
@@ -167,7 +170,9 @@ function Task() {
   const handleDelete = (e, taskId) => {
     e.stopPropagation();
     axios
-      .delete(`http://localhost:9000/project/${projectId}/task/${taskId}`)
+      .delete(
+        `https://taskmanager-bhx4.onrender.com/project/${projectId}/task/${taskId}`
+      )
       .then((res) => {
         toast.success("Task is deleted");
         setRenderChange(true);

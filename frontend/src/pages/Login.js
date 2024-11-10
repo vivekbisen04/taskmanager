@@ -19,7 +19,10 @@ const Login = ({ setIsLoggedIn, setToken }) => {
     if (email.length > 0 && password.length > 0) {
       const formData = { email, password };
       try {
-        const response = await axios.post("http://localhost:9000/api/v1/login", formData);
+        const response = await axios.post(
+          "https://taskmanager-bhx4.onrender.com/api/v1/login",
+          formData
+        );
         setToken(response.data.token); // Set token in memory
         setIsLoggedIn(true); // Update login status
         toast.success("Login successful");
