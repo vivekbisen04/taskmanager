@@ -22,6 +22,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+ const serverURL = "https://taskmanager-bhx4.onrender.com"; // Ensure this uses the correct protocol (http or https)
+
+    setInterval(() => {
+      https.get(serverURL, (res) => { // Change to https.get if using HTTP
+        console.log(`Server pinged: ${res.statusCode}`);
+      }).on("error", (err) => {
+        console.error("Error pinging the server:", err.message);
+      });
+    }, 60000);
+
 app.use(api);
 app.use("/api/v1", userRoutes); // Use the CommonJS imported userRoutes
 
