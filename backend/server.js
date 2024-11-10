@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import cors from "cors";
 import userRoutes from "./routes/user.js";
+import https from "https";
 
 
 dotenv.config();
@@ -30,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
       }).on("error", (err) => {
         console.error("Error pinging the server:", err.message);
       });
-    }, 60000);
+    }, 6000);
 
 app.use(api);
 app.use("/api/v1", userRoutes); // Use the CommonJS imported userRoutes
