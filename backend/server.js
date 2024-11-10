@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
       }).on("error", (err) => {
         console.error("Error pinging the server:", err.message);
       });
-    }, 6000);
+    }, 60000);
 
 app.use(api);
 app.use("/api/v1", userRoutes); // Use the CommonJS imported userRoutes
